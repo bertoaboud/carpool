@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'underscore-rails'
+gem 'gmaps4rails'
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
