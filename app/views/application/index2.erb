@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Navbar Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <%= javascript_include_tag "application" %>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href ="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" rel="javascripts"> 
+
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Carpool</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li style = "padding-top: 15px; padding-left: 30px;" >
+              <% if user_signed_in? %>
+                Welcome <strong><%= current_user.name + " " + current_user.lastname%></strong>.
+              <% end %>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li class="active"><a>
+                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+              </a></li>
+              <li><a>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+              </a></li>
+            <% else %>
+              <li class="active"><a>
+                <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+              </a></li>
+              <li><a>
+                <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+              </a></li>
+            <% end %>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Find a ride!</h1>
+        <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+        <div style = "text-align: center">
+          <%= image_tag "back1.jpg" %>
+        </div>
+        <p>
+          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+        </p>
+      </div>
+
+    </div> 
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  </body>
+</html>
