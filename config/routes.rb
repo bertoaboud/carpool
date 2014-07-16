@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'application#index2'
+  root 'application#index'
   devise_for :users, :controllers => {:registrations => "registrations"}
   # Example of regular route:
   get 'registrations/address' => 'registrations#address', as: :address

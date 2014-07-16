@@ -1,200 +1,120 @@
-  <head>
-    <title>Navbar Template for Bootstrap</title>
+<title>Navbar Template for Bootstrap</title>
+<head>
+  <!-- Bootstrap core CSS -->
+  <%= javascript_include_tag "application" %>
 
-    <!-- Bootstrap core CSS -->
-    <%= javascript_include_tag "application" %>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href ="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" rel="javascripts"> 
+  <link href ="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" rel="javascripts"> 
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
-  </head>
-    <div class="container">
-      <div class="navbar navbar-default" role="navigation">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <%= link_to 'Carpool', root_url, class: "navbar-brand"%>
-            </div>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-              </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a>
-                <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-              </a></li>
-              <li><a>
-                <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-              </a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-        <div class="jumbotron">
-          <h2>Sign up</h2>
-            
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= devise_error_messages! %>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="../../../assets/stylesheets/sign.up.css">
 
-            <div><%= f.label :name %><br />
-            <%= f.text_field :name, autofocus: true %></div>
-
-            <div><%= f.label :lastname %><br />
-            <%= f.text_field :lastname, autofocus: true %></div>
-
-            <div><%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true %></div>
-
-            <div><%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "off" %></div>
-
-            <div><%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-            <div><%= f.label :address %><br />
-            <%= f.text_field :address, autofocus: true %></div>
-
-            <div><%= f.label :drive %><br />
-            <%= f.label :carbonated, 'yes' %> <%= f.radio_button :drive, true %>
-            <%= f.label :carbonated, 'no' %> <%= f.radio_button :drive, false %>
-
-            <div><%= f.label "Car Capacity" %><br />
-              <%= f.label :carbonated, 2 %> <%= f.radio_button :carcapacity, 2 %>
-              <%= f.label :carbonated, 3 %> <%= f.radio_button :carcapacity, 3 %>
-              <%= f.label :carbonated, 4 %> <%= f.radio_button :carcapacity, 4 %>
-            </div>
-
-
-            <div id="schedulingInfo" class="col-md-6">
-              <h3> When do you arrive/leave work? </h3> 
-                <table class="table table-striped table-bordered table-condensed table-hover greencss-label" width="400">
-                    <tr>
-                      <td class="info">Arrive at:</td>
-                      <td class="info">M</td>
-                      <td class="info">T</td>
-                      <td class="info">W</td>
-                      <td class="info">TH</td>
-                      <td class="info">F</td>
-                    </tr>
-                    <tr class="success">
-                      <td> 7h00 </td> 
-                      <td> <%= f.radio_button :in_mo, "7:00" %> </td>
-                      <td> <%= f.radio_button :in_tu, "7:00" %> </td>
-                      <td> <%= f.radio_button :in_we, "7:00" %> </td>
-                      <td> <%= f.radio_button :in_th, "7:00" %> </td>
-                      <td> <%= f.radio_button :in_fr, "7:00" %> </td>
-                    </tr>
-                    <tr class="success">
-                      <td> 7h30 </td> 
-                      <td> <%= f.radio_button :in_mo, "7:30" %> </td>
-                      <td> <%= f.radio_button :in_tu, "7:30" %> </td>
-                      <td> <%= f.radio_button :in_we, "7:30" %> </td>
-                      <td> <%= f.radio_button :in_th, "7:30" %> </td>
-                      <td> <%= f.radio_button :in_fr, "7:30" %> </td>
-                    </tr>
-                    <tr class="success">
-                      <td> 8h00 </td> 
-                      <td> <%= f.radio_button :in_mo, "8:00" %> </td>
-                      <td> <%= f.radio_button :in_tu, "8:00" %> </td>
-                      <td> <%= f.radio_button :in_we, "8:00" %> </td>
-                      <td> <%= f.radio_button :in_th, "8:00" %> </td>
-                      <td> <%= f.radio_button :in_fr, "8:00" %> </td>
-                    </tr>
-                    <tr class="success">
-                      <td> 8h30 </td> 
-                      <td> <%= f.radio_button :in_mo, "8:30" %> </td>
-                      <td> <%= f.radio_button :in_tu, "8:30" %> </td>
-                      <td> <%= f.radio_button :in_we, "8:30" %> </td>
-                      <td> <%= f.radio_button :in_th, "8:30" %> </td>
-                      <td> <%= f.radio_button :in_fr, "8:30" %> </td>
-                    </tr>
-                    <tr class="success">
-                      <td> 9h00 </td> 
-                      <td> <%= f.radio_button :in_mo, "9:00" %> </td>
-                      <td> <%= f.radio_button :in_tu, "9:00" %> </td>
-                      <td> <%= f.radio_button :in_we, "9:00" %> </td>
-                      <td> <%= f.radio_button :in_th, "9:00" %> </td>
-                      <td> <%= f.radio_button :in_fr, "9:00" %> </td>
-                    </tr>
-                    <tr class="success">
-                      <td> 9h30 </td> 
-                      <td> <%= f.radio_button :in_mo, "9:30" %> </td>
-                      <td> <%= f.radio_button :in_tu, "9:30" %> </td>
-                      <td> <%= f.radio_button :in_we, "9:30" %> </td>
-                      <td> <%= f.radio_button :in_th, "9:30" %> </td>
-                      <td> <%= f.radio_button :in_fr, "9:30" %> </td>
-                    </tr>
-                    <tr>
-                      <td class="info">Leave at:</td>
-                      <td class="info">M</td>
-                      <td class="info">T</td>
-                      <td class="info">W</td>
-                      <td class="info">TH</td>
-                      <td class="info">F</td>
-                    </tr>
-                    <tr class="danger">
-                      <td> 3h30 </td> 
-                      <td> <%= f.radio_button :out_mo, "3:30" %> </td>
-                      <td> <%= f.radio_button :out_tu, "3:30" %> </td>
-                      <td> <%= f.radio_button :out_we, "3:30" %> </td>
-                      <td> <%= f.radio_button :out_th, "3:30" %> </td>
-                      <td> <%= f.radio_button :out_fr, "3:30" %> </td>
-                    </tr>
-                    <tr class="danger">
-                      <td> 4h00 </td> 
-                      <td> <%= f.radio_button :out_mo, "4:00" %> </td>
-                      <td> <%= f.radio_button :out_tu, "4:00" %> </td>
-                      <td> <%= f.radio_button :out_we, "4:00" %> </td>
-                      <td> <%= f.radio_button :out_th, "4:00" %> </td>
-                      <td> <%= f.radio_button :out_fr, "4:00" %> </td>
-                    </tr>
-                    <tr class="danger">
-                      <td> 4h30 </td> 
-                      <td> <%= f.radio_button :out_mo, "4:30" %> </td>
-                      <td> <%= f.radio_button :out_tu, "4:30" %> </td>
-                      <td> <%= f.radio_button :out_we, "4:30" %> </td>
-                      <td> <%= f.radio_button :out_th, "4:30" %> </td>
-                      <td> <%= f.radio_button :out_fr, "4:30" %> </td>
-                    </tr>
-                    <tr class="danger">
-                      <td> 5h00 </td> 
-                      <td> <%= f.radio_button :out_mo, "5:00" %> </td>
-                      <td> <%= f.radio_button :out_tu, "5:00" %> </td>
-                      <td> <%= f.radio_button :out_we, "5:00" %> </td>
-                      <td> <%= f.radio_button :out_th, "5:00" %> </td>
-                      <td> <%= f.radio_button :out_fr, "5:00" %> </td>
-                    </tr>
-                    <tr class="danger">
-                      <td> 5h30 </td> 
-                      <td> <%= f.radio_button :out_mo, "5:30" %> </td>
-                      <td> <%= f.radio_button :out_tu, "5:30" %> </td>
-                      <td> <%= f.radio_button :out_we, "5:30" %> </td>
-                      <td> <%= f.radio_button :out_th, "5:30" %> </td>
-                      <td> <%= f.radio_button :out_fr, "5:30" %> </td>
-                    </tr>
-                    <tr class="danger">
-                      <td> 6h00 </td> 
-                      <td> <%= f.radio_button :out_mo, "6:00" %> </td>
-                      <td> <%= f.radio_button :out_tu, "6:00" %> </td>
-                      <td> <%= f.radio_button :out_we, "6:00" %> </td>
-                      <td> <%= f.radio_button :out_th, "6:00" %> </td>
-                      <td> <%= f.radio_button :out_fr, "6:00" %> </td>
-                    </tr>
-                <table/>
-              </div>
- 
-
-              </div>
-            </div>
-            <br>
-            <div><%= f.submit "Sign up" %></div>
-          <% end %>
+</head>
+<body>
+  <div class="entireBackground">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">  
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div>
+            <img src="/images/logo.gif" alt="rss feed" style="float:left;"/>
+            <a class="navbar-brand" href="#" ><%= link_to 'freelift', root_url, class: "navbar-brand"%></a>
+            <a class="navbar-brand" href="#" ><%= link_to 'home', root_url, class: "navbar-brand"%></a>
+          </div>
         </div>
+
+        <div class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right" role="form">
+              <button type="submit" class="btn btn-danger"><%= link_to "login", new_user_session_path, :class => 'navbar-link'  %></button>
+              <button type="submit" class="btn btn-success disabled"><%= link_to "sign up", new_user_registration_path, :class => 'navbar-link'  %></button>
+            </form>  
+          </div>  
+        </div><!--/.nav-collapse -->
       </div>
 
 
+      <div class="jumbotron" style="background-image: url(/images/plainsroad.jpg);">
+        <div class="container">
+        <h2 style="font-weight: bold !important;">Sign up</h2>
+        <p  style="font-weight: bold !important;"> We need the following information from you to setup your carpooling </p>
+      </div>
+    </div>
+    <div id="loginArea" class="row">
+      <div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
 
-      <!-- Main component for a primary marketing message or call to action -->
+          <div class="row">
+            <div class="col-xs-2 col-xs-offset-4">
+              <h4><%= f.label :name %></h4>
+              <%= f.text_field :name, autofocus: true, :class => "form-control", :placeholder => "Enter your first name" %> 
+            </div>  
+            <div class="col-xs-2">
+              <h4><%= f.label :lastname %></h4> 
+              <%= f.text_field :lastname, autofocus: true, :class => "form-control", :placeholder => "Enter your last name" %>
+          </div>   
 
-    </div> 
+            <div class="row">            
+              <div class="col-xs-4 col-xs-offset-4">
+                <h4><%= f.label :email %></h4>
+                <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Enter your Freescale E-mail" %>
+              </div>
+            </div> 
 
+          <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+              <div><%= f.label :phone %><br />
+              <%= f.text_field :phone, autofocus: true, :class => "form-control", :placeholder => "Enter your phone number"  %></div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+              <h4><%= f.label :password %></h4>
+              <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Enter your password" %>
+            </div>
+          </div>
 
+          <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+              <h4><%= f.label :password_confirmation %></h4>
+                <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder => "Reenter your password" %>
+            </div>
+          </div>
 
+          <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+              <h4><%= f.label :address %></h4>
+              <%= f.text_field :address, autofocus: true, :class => "form-control", :placeholder => "Enter your address" %>
+              <P style = "font-size:90%; color: #808080">Ex: 6636, William Cannon Drive, Austin</p>
+            </div>
+          </div>
+
+          <div class="radioBtns">
+            <h3> Can you drive? </h3>
+            <div class="YesOrNo">
+              <%= f.label :carbonated, 'Yes' %> <%= f.radio_button :drive, true %>
+              <%= f.label :carbonated, 'No' %> <%= f.radio_button :drive, false %></div>      
+            </div>
+          </div>
+
+          <%= f.submit "Submit", :class =>" btn-success btn-xlarge" %>          
+          <%end%>
+        </div>
+      </div>
+    <div id="bottomText" class="col-md-2 cold-mx-offset-5">
+      <h3 style="float:left"> By: Team Brazil </h3>
+      <img style="float:right" src="/images/brazil.png" alt="rss feed" />
+    </div>
+</body>
 

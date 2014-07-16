@@ -17,14 +17,25 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
               </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a>
-                <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-              </a></li>
-              <li><a>
-                <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-              </a></li>
-            </ul>
+            <% if user_signed_in? %>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a>
+                  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+                </a></li>
+                <li><a>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                </a></li>
+              </ul>
+            <% else %>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a>
+                  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+                </a></li>
+                <li><a>
+                  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+                </a></li>
+              </ul>
+            <% end %>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
         <div class="jumbotron">
@@ -33,7 +44,12 @@
             <%= @user.name + ' ' + @user.lastname%>
           </h3>
           <br>
-          <%= @user.email %>
+            Email:
+            <%= @user.email %>
+          <br>
+          <br>
+            Phone:
+            <%= @user.phone %>
           <br>
           Driver: 
           <% if @user.drive %>

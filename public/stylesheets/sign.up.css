@@ -1,0 +1,339 @@
+
+*{
+    font-family: 'Segoi UI';
+    font-weight: bold !important;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 1.25em;
+    text-rendering: optimizeLegibility;
+
+
+
+}
+
+@font-face {
+  font-family: 'Segoi UI';
+  src: url('/fonts/SEGOEUIL.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/SEGOEUIL.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/SEGOEUIL.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/SEGOEUIL.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/SEGOEUIL.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+.navbar {
+    opacity: 0.85;
+
+}
+
+
+.navbar a {
+  color: #fff !important;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px 10px;
+  font-family: 'Segoi UI',Arial,sans-serif ;
+}
+ 
+
+.jumbotron {
+        height: 140px !important;
+        color:#FFFFFF !important;
+        
+            margin-bottom: -10px;
+    background-position: 0% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000 !important;
+
+
+}
+ 
+.jumbotron .container h2 {
+        margin-top: 16px !important;
+        height: 30px;
+        font-weight:normal !important;
+        padding:0px 0px 0px 0px !important;
+        color:#FFFFFF !important;
+
+}
+
+h2#signInForLogin {
+    margin-top:25px !important;
+}
+ 
+h3 {
+ 
+        color: #FFFFFF !important;
+}
+ 
+html, body
+{
+        width:100%;
+        height:100%;
+        padding:0px 0px 0px 0px ;
+        margin:0;
+        background:url(imgs/bg.jpg);
+        font-family: Helvetica,sans-serif ;
+        text-align: center;
+        background-color:#DC3D24;
+}
+ 
+ 
+tr {
+        font-family: Tahoma, Geneva, sans-serif;
+        font-weight: bold;
+}
+ 
+ 
+ 
+table input[type=checkbox].css-checkbox {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height:1px;
+        width:1px;
+        margin:-1px;
+        margin-left:auto;
+        margin-right:auto;
+        padding:0;
+        border: 0;
+}
+ 
+table input[type=checkbox].css-checkbox + label.greencss-label {
+        padding-left:20px;
+        height:15px;
+        display:inline-block;
+        line-height:15px;
+        background-repeat:no-repeat;
+        background-position: 0 0;
+        font-size:15px;
+        vertical-align:middle;
+        cursor:pointer;
+}
+ 
+table input[type=checkbox].css-checkbox:checked + label.greencss-label {
+        background-position: 0 -15px;
+}
+ 
+table .greencss-label{ background-image:url(http://csscheckbox.com/checkboxes/lite-green-check.png); }
+ 
+table input[type=checkbox].css-checkbox + label.redcss-label {
+        padding-left:20px;
+        height:15px;
+        display:inline-block;
+        line-height:15px;
+        background-repeat:no-repeat;
+        background-position: 0 0;
+        font-size:15px;
+        vertical-align:middle;
+        cursor:pointer;
+}
+ 
+table input[type=checkbox].css-checkbox:checked + label.redcss-label {
+        background-position: 0 -15px;
+}
+ 
+.redcss-label{ background-image:url(http://csscheckbox.com/checkboxes/lite-red-check.png); }
+ 
+.success {
+        background-color: green;
+ 
+        margin-left: auto;
+        margin-right: auto;
+}
+ 
+.danger {
+ 
+        background-color: red;
+ 
+        margin-left: auto;
+        margin-right: auto;
+}
+ 
+#carCapNums {
+        display: inline-block;
+        vertical-align: top;
+}
+ 
+.center {
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+}
+ 
+ 
+ 
+.radioBtns input[type=radio].css-checkbox {
+        display:none;
+}
+ 
+.radioBtns input[type=radio].css-checkbox + label.radiocss-label {
+        padding-left:37px;
+        height:32px;
+        display:inline-block;
+        line-height:32px;
+        background-repeat:no-repeat;
+        background-position: 0 0;
+        font-size:32px;
+        vertical-align:middle;
+        cursor:pointer;
+ 
+}
+ 
+.radioBtns input[type=radio].css-checkbox:checked + label.radiocss-label {
+        background-position: 0 -32px;
+}
+.radioBtns label.radiocss-label {
+        background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_5ac89e8a25343bbf757f4584d0114758.png);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+}
+ 
+ 
+body #loginInfo {
+        height: 74%;
+        width: 55%;
+        position: relative;
+        margin: 0px 0px 0px 0px;
+}
+ 
+ 
+ 
+body #schedulingInfo {
+        height: 650px;
+        width: 100px;
+        width: 50%;
+        position: relative;
+        margin: 00px 0px 0px 0px;
+ 
+}
+ 
+
+ 
+div .table {
+        height: 75%;
+        width:75%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+        border-radius: 4px;
+        border: 5px solid #488214;
+ 
+        box-shadow: 10px 10px 5px #0f0f0f;
+ 
+ 
+}
+ 
+.span5 ,.span3, .span2 {
+        height: 40px;
+        margin: 10px;
+}
+ 
+.whiteText, h4 {
+        font-size: 20px !important;
+        text-align: left;
+        font-weight: bold !important;
+        color: #E9E9E9 !important;
+        text-shadow: 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000 !important;
+ 
+ 
+}
+ 
+ div.YesOrNo {
+        font-weight: bold !important;
+        color: #E9E9E9 !important;
+        text-shadow: 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000 !important;
+ 
+}
+ 
+#schedulingInfo h3, .radioBtns h3 {
+ 
+        font-size: 25px !important;
+        text-align: center;
+        font-weight: bold !important;
+        color: #E9E9E9 !important;
+        text-shadow: 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000 !important;
+ 
+}
+ 
+input[type="text"]{
+   @include transition(all 0.30s ease-in-out);
+  outline: none !important;
+  padding: 3px 0px 3px 3px !important;
+  margin: 5px 1px 3px 0px !important;
+  border: 1px solid #DDDDDD !important;
+}
+input[type="text"]:focus{
+  @include box-shadow(0 0 5px rgba(81, 203, 238, 1));
+  -webkit-box-shadow: 0px 0px 10px #ff0000 !important;  
+  -moz-box-shadow: 0px 0px 10px #ff0000 !important;  
+  box-shadow: 0px 0px 10px #ff0000 !important;
+}
+
+input[type="email"]:focus{
+  @include box-shadow(0 0 5px rgba(81, 203, 238, 1));
+  -webkit-box-shadow: 0px 0px 10px #ff0000 !important;  
+  -moz-box-shadow: 0px 0px 10px #ff0000 !important;  
+  box-shadow: 0px 0px 10px #ff0000 !important;
+}
+
+input[type="password"]:focus{
+  @include box-shadow(0 0 5px rgba(81, 203, 238, 1));
+  -webkit-box-shadow: 0px 0px 10px #ff0000 !important;  
+  -moz-box-shadow: 0px 0px 10px #ff0000 !important;  
+  box-shadow: 0px 0px 10px #ff0000 !important;
+}
+ 
+.entireBackground {
+          background-color: #DC3D24 !important;
+          height: 100%;
+ 
+ 
+}
+
+.row {
+        background-color: #232323;
+        height: 74%;
+
+}
+ 
+.btn-xlarge {
+    padding: 12px 16px 16px 16px !important;
+    font-size: 35px  !important;
+    line-height: normal  !important;
+    -webkit-border-radius: 8px !important;
+       -moz-border-radius: 8px !important;
+            border-radius: 8px !important;
+}
+
+#loginArea {
+    height: 615px;
+}
+
+.signInArea {
+           height: 70% !important;
+        color:#FFFFFF !important;
+
+            margin-bottom: -10px;
+    background-position: 0% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000 !important;
+}
+
+div.signInForm {
+    vertical-align:middle;
+}
+
+.disregardRowBackground {
+background-color:rgba(255,0,0,0.0);
+}
