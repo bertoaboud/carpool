@@ -8,19 +8,25 @@ class ApplicationController < ActionController::Base
 
   def index2
   end
+
+	def show
+	  @user = User.find(params[:id])
+	end
+
 	protected
+
 
 	skip_before_filter :verify_authenticity_token
 	before_filter :configure_devise_params, if: :devise_controller?
 	def configure_devise_params
 	  devise_parameter_sanitizer.for(:sign_up) do |u| 
-	  	u.permit(:name, :lastname, :email, :password, :password_confirmation, :remember_me, :address, :drive, :carcapacity, :in_mo, :in_tu, :in_we, :in_th, :in_fr, :out_mo, :out_tu, :out_we, :out_th, :out_fr)
+	  	u.permit(:name, :lastname, :email, :password, :password_confirmation, :remember_me, :address, :drive, :carcapacity, :in_mo, :in_tu, :in_we, :in_th, :in_fr, :out_mo, :out_tu, :out_we, :out_th, :out_fr, :latitude, :longitude)
 	  end
 	  devise_parameter_sanitizer.for(:sign_in) do |u| 
 	  	u.permit(:login, :username, :email, :password, :remember_me)
 	  end
 	  devise_parameter_sanitizer.for(:account_update) do |u| 
-	  	u.permit(:name, :lastname, :email, :password, :password_confirmation, :current_password, :address, :drive, :carcapacity, :in_mo, :in_tu, :in_we, :in_th, :in_fr, :out_mo, :out_tu, :out_we, :out_th, :out_fr)
+	  	u.permit(:name, :lastname, :email, :password, :password_confirmation, :current_password, :address, :drive, :carcapacity, :in_mo, :in_tu, :in_we, :in_th, :in_fr, :out_mo, :out_tu, :out_we, :out_th, :out_fr, :latitude, :longitude)
 		end	  	
 
 	end  

@@ -1,105 +1,143 @@
-<h2>Sign up</h2>
-	
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <head>
+    <title>Navbar Template for Bootstrap</title>
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name, autofocus: true %></div>
+    <!-- Bootstrap core CSS -->
+    <%= javascript_include_tag "application" %>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href ="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" rel="javascripts"> 
 
-  <div><%= f.label :lastname %><br />
-  <%= f.text_field :lastname, autofocus: true %></div>
+  </head>
+    <div class="container">
+      <div class="navbar navbar-default" role="navigation">
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <%= link_to 'Carpool', root_url, class: "navbar-brand"%>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+              </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a>
+                <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+              </a></li>
+              <li><a>
+                <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+              </a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+        <div class="jumbotron">
+          <h2>Sign up</h2>
+            
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+            <div><%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+            <div><%= f.label :lastname %><br />
+            <%= f.text_field :lastname, autofocus: true %></div>
 
-  <div><%= f.label :address %><br />
-  <%= f.text_field :address, autofocus: true %></div>
+            <div><%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.label :drive %><br />
-  <%= f.check_box :drive, autofocus: true %></div>
+            <div><%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off" %></div>
 
-  <div><%= f.label "Car Capacity" %><br />
-    <%= f.label :carbonated, 2 %> <%= f.radio_button :carcapacity, 2 %>
-    <%= f.label :carbonated, 3 %> <%= f.radio_button :carcapacity, 3 %>
-    <%= f.label :carbonated, 4 %> <%= f.radio_button :carcapacity, 4 %>
-  </div>
-  <div><%= f.label "Normal time on work" %>
-    <br>
-    <br>
-    <tr>
-      <td> Monday </td>
-      <td> Tuesday </td>
-      <td> Wednesday </td>
-      <td> Thursday </td>
-      <td> Friday </td>
-    </tr>
-    <div><%= f.label "In" %>
-      <table>   
-        <tr>
-          <td> 8h00 </td> 
-          <td> <%= f.radio_button :in_mo, "8:00" %> </td>
-          <td> <%= f.radio_button :in_tu, "8:00" %> </td>
-          <td> <%= f.radio_button :in_we, "8:00" %> </td>
-          <td> <%= f.radio_button :in_th, "8:00" %> </td>
-          <td> <%= f.radio_button :in_fr, "8:00" %> </td>
-        </tr>
-        <tr>
-          <td> 9h00 </td> 
-          <td> <%= f.radio_button :in_mo, "9:00" %> </td>
-          <td> <%= f.radio_button :in_tu, "9:00" %> </td>
-          <td> <%= f.radio_button :in_we, "9:00" %> </td>
-          <td> <%= f.radio_button :in_th, "9:00" %> </td>
-          <td> <%= f.radio_button :in_fr, "9:00" %> </td>
-        </tr>
-        <tr> 
-          <td> 10h00 </td> 
-          <td> <%= f.radio_button :in_mo, "10:00" %> </td>
-          <td> <%= f.radio_button :in_tu, "10:00" %> </td>
-          <td> <%= f.radio_button :in_we, "10:00" %> </td>
-          <td> <%= f.radio_button :in_th, "10:00" %> </td>
-          <td> <%= f.radio_button :in_fr, "10:00" %> </td>
-        </tr>
-      </table>
-    </div>
-    <br>
-    <div><%= f.label "Out" %>
-      <table>   
-        <tr>
-          <td> 4h00 </td> 
-          <td> <%= f.radio_button :out_mo, "4:00" %> </td>
-          <td> <%= f.radio_button :out_tu, "4:00" %> </td>
-          <td> <%= f.radio_button :out_we, "4:00" %> </td>
-          <td> <%= f.radio_button :out_th, "4:00" %> </td>
-          <td> <%= f.radio_button :out_fr, "4:00" %> </td>
-        </tr>
-        <tr>
-          <td> 5h00 </td> 
-          <td> <%= f.radio_button :out_mo, "5:00" %> </td>
-          <td> <%= f.radio_button :out_tu, "5:00" %> </td>
-          <td> <%= f.radio_button :out_we, "5:00" %> </td>
-          <td> <%= f.radio_button :out_th, "5:00" %> </td>
-          <td> <%= f.radio_button :out_fr, "5:00" %> </td>
-        </tr>
-        <tr> 
-          <td> 6h00 </td> 
-          <td> <%= f.radio_button :out_mo, "6:00" %> </td>
-          <td> <%= f.radio_button :out_tu, "6:00" %> </td>
-          <td> <%= f.radio_button :out_we, "6:00" %> </td>
-          <td> <%= f.radio_button :out_th, "6:00" %> </td>
-          <td> <%= f.radio_button :out_fr, "6:00" %> </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <br>
+            <div><%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+            <div><%= f.label :address %><br />
+            <%= f.text_field :address, autofocus: true %></div>
 
-<%= render "devise/shared/links" %>
+            <div><%= f.label :drive %><br />
+            <%= f.label :carbonated, 'yes' %> <%= f.radio_button :drive, true %>
+            <%= f.label :carbonated, 'no' %> <%= f.radio_button :drive, false %>
+
+            <div><%= f.label "Car Capacity" %><br />
+              <%= f.label :carbonated, 2 %> <%= f.radio_button :carcapacity, 2 %>
+              <%= f.label :carbonated, 3 %> <%= f.radio_button :carcapacity, 3 %>
+              <%= f.label :carbonated, 4 %> <%= f.radio_button :carcapacity, 4 %>
+            </div>
+            <div><%= f.label "Normal time on work" %>
+              <br>
+              <br>
+              <tr>
+                <td> Monday </td>
+                <td> Tuesday </td>
+                <td> Wednesday </td>
+                <td> Thursday </td>
+                <td> Friday </td>
+              </tr>
+              <div><%= f.label "In" %>
+                <table>   
+                  <tr>
+                    <td> 8h00 </td> 
+                    <td> <%= f.radio_button :in_mo, "8:00" %> </td>
+                    <td> <%= f.radio_button :in_tu, "8:00" %> </td>
+                    <td> <%= f.radio_button :in_we, "8:00" %> </td>
+                    <td> <%= f.radio_button :in_th, "8:00" %> </td>
+                    <td> <%= f.radio_button :in_fr, "8:00" %> </td>
+                  </tr>
+                  <tr>
+                    <td> 9h00 </td> 
+                    <td> <%= f.radio_button :in_mo, "9:00" %> </td>
+                    <td> <%= f.radio_button :in_tu, "9:00" %> </td>
+                    <td> <%= f.radio_button :in_we, "9:00" %> </td>
+                    <td> <%= f.radio_button :in_th, "9:00" %> </td>
+                    <td> <%= f.radio_button :in_fr, "9:00" %> </td>
+                  </tr>
+                  <tr> 
+                    <td> 10h00 </td> 
+                    <td> <%= f.radio_button :in_mo, "10:00" %> </td>
+                    <td> <%= f.radio_button :in_tu, "10:00" %> </td>
+                    <td> <%= f.radio_button :in_we, "10:00" %> </td>
+                    <td> <%= f.radio_button :in_th, "10:00" %> </td>
+                    <td> <%= f.radio_button :in_fr, "10:00" %> </td>
+                  </tr>
+                </table>
+              </div>
+              <br>
+              <div><%= f.label "Out" %>
+                <table>   
+                  <tr>
+                    <td> 4h00 </td> 
+                    <td> <%= f.radio_button :out_mo, "4:00" %> </td>
+                    <td> <%= f.radio_button :out_tu, "4:00" %> </td>
+                    <td> <%= f.radio_button :out_we, "4:00" %> </td>
+                    <td> <%= f.radio_button :out_th, "4:00" %> </td>
+                    <td> <%= f.radio_button :out_fr, "4:00" %> </td>
+                  </tr>
+                  <tr>
+                    <td> 5h00 </td> 
+                    <td> <%= f.radio_button :out_mo, "5:00" %> </td>
+                    <td> <%= f.radio_button :out_tu, "5:00" %> </td>
+                    <td> <%= f.radio_button :out_we, "5:00" %> </td>
+                    <td> <%= f.radio_button :out_th, "5:00" %> </td>
+                    <td> <%= f.radio_button :out_fr, "5:00" %> </td>
+                  </tr>
+                  <tr> 
+                    <td> 6h00 </td> 
+                    <td> <%= f.radio_button :out_mo, "6:00" %> </td>
+                    <td> <%= f.radio_button :out_tu, "6:00" %> </td>
+                    <td> <%= f.radio_button :out_we, "6:00" %> </td>
+                    <td> <%= f.radio_button :out_th, "6:00" %> </td>
+                    <td> <%= f.radio_button :out_fr, "6:00" %> </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <br>
+            <div><%= f.submit "Sign up" %></div>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Main component for a primary marketing message or call to action -->
+
+    </div> 
+
+
+
+

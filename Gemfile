@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "geocoder"
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 2.3'
 gem 'underscore-rails'
