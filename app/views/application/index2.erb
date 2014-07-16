@@ -52,14 +52,17 @@
               <% end %>
             <% end %>
             <% vector2 = vector2.sort_by {|name, distance| distance} %>
-            <table class="table table-bordered table-hover" style = "width:370px; background-color: #FFFFFF ">
+            <table class="table table-bordered table-hover" style = "width:300px; background-color: #FFFFFF ">
               <% for i in 0..4%>
                 <tr>
                   <th>
                     <%= link_to vector2[i].first.name, user_show_path(vector2[i].first.id)%>
                   </th>
-                  <th>
+                  <th style = "width:170px">
                     <%= vector2[i].second.round(1).to_s + " miles"  %>
+                  </th>
+                  <th>
+                    <%= link_to "hiiii"%>
                   </th>
                 </tr>
               <% end %>
@@ -73,29 +76,31 @@
           <h3>Suggested rides:</h3>
           <% dis_max = 10%>
           <% vector_sug = Array.new %>
-          <% vector2.each_with_index do |v,i| %>
-            <% if v.second < dis_max %>
-              <% vector_sug << v.first %>
-            <% end %>
-          <% end %>
-          <% if vector_sug.size > 0 %>
-            <% if vector_sug.size > 3 %>
-              <% num = 3 %>
-            <% else %>
-              <% num = vector_sug.size %>
-            <% end %>
-            <% vector_sug.combination(num).to_a.each do |v| %>
-              <table class="table table-bordered table-hover" style = "width:120px; background-color: #FFFFFF ">
-                <% v.each do |vv| %>
-                  <tr>
-                    <th>
-                      <%= link_to vv.name, user_show_path(vv.id)%>
-                    </th>
-                  </tr>
-                <% end %>
-                <br>
+          <% if vector2 %>
+            <% vector2.each_with_index do |v,i| %>
+              <% if v.second < dis_max %>
+                <% vector_sug << v.first %>
               <% end %>
             <% end %>
+            <% if vector_sug.size > 0 %>
+              <% if vector_sug.size > 3 %>
+                <% num = 3 %>
+              <% else %>
+                <% num = vector_sug.size %>
+              <% end %>
+              <% vector_sug.combination(num).to_a.each do |v| %>
+                <table class="table table-bordered table-hover" style = "width:120px; background-color: #FFFFFF ">
+                  <% v.each do |vv| %>
+                    <tr>
+                      <th>
+                        <%= link_to vv.name, user_show_path(vv.id)%>
+                      </th>
+                    </tr>
+                  <% end %>
+                  <br>
+                <% end %>
+              <% end %>
+          <% end %>
           </table>              
 
           <div style='width: 800px;'>

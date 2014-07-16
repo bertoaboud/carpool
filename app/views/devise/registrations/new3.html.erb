@@ -1,75 +1,86 @@
-  <head>
-    <title>Navbar Template for Bootstrap</title>
-    <!-- Bootstrap core CSS -->
-    <%= javascript_include_tag "application" %>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href ="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" rel="javascripts"> 
-  </head>
 
-    <div class="container">
-      <div class="navbar navbar-default" role="navigation">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <%= link_to 'Carpool', root_url, class: "navbar-brand"%>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+ 
+<!-- Optional theme -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+ 
+<!-- Latest compiled and minified JavaScript -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+ 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" type="text/css" href="../../../assets/stylesheets/sign.up.css">
+ 
+<div class="entireBackground" style="background-color:#FFFFFF">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">FreeLift</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right" role="form">
+        <div class="form-group">
+          <input type="text" placeholder="Core ID" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Password" class="form-control">
+        </div>
+        <%= button_to "Sign in", new_user_session_path, :class=>"btn btn-success" %>
+        <%= button_to "Sign up", new_user_registration_path, :class=>"btn btn-warning" %>
+ 
+      </form>
+    </div><!--/.navbar-collapse -->
+  </div>
+</div>
+ 
+<div class="jumbotron">
+        <div class="container">
+                <h2  style="font-weight: bold !important;">Sign up</h2>
+                <p  style="font-weight: bold !important;"> We need the following information from you to setup your carpooling </p>
+        </div>
+</div>
+<div class="row">
+ 
+<div id="loginInfo" class="col-md-6">
+ 
+ 
+            
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div><%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true %></div>
+
+            <div><%= f.label :lastname %><br />
+            <%= f.text_field :lastname, autofocus: true %></div>
+
+            <div><%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %></div>
+
+            <div><%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off" %></div>
+
+            <div><%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+            <div><%= f.label :address %><br />
+            <%= f.text_field :address, autofocus: true %></div>
+
+            <div><%= f.label :drive %><br />
+            <%= f.label :carbonated, 'yes' %> <%= f.radio_button :drive, true %>
+            <%= f.label :carbonated, 'no' %> <%= f.radio_button :drive, false %>
+
+            <div><%= f.label "Car Capacity" %><br />
+              <%= f.label :carbonated, 2 %> <%= f.radio_button :carcapacity, 2 %>
+              <%= f.label :carbonated, 3 %> <%= f.radio_button :carcapacity, 3 %>
+              <%= f.label :carbonated, 4 %> <%= f.radio_button :carcapacity, 4 %>
             </div>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-              </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a>
-                <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-              </a></li>
-              <li><a>
-                <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-              </a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-        <div class="jumbotron">
-
-
-
-          <h2>Edit <%= resource_name.to_s.humanize %></h2>
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-              <%= devise_error_messages! %>
-
-              <div><%= f.label :name %><br />
-              <%= f.text_field :name, autofocus: true %></div>
-
-              <div><%= f.label :lastname %><br />
-              <%= f.text_field :lastname, autofocus: true %></div>
-
-              <div><%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true %></div>
-
-              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-              <% end %>
-
-              <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-                <%= f.password_field :password, autocomplete: "off" %></div>
-
-              <div><%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-              <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-                <%= f.password_field :current_password, autocomplete: "off" %></div>
-
-              <div><%= f.label :address %><br />
-              <%= f.text_field :address, autofocus: true %></div>
-
-              <div><%= f.label :drive %><br />
-              <%= f.check_box :drive, autofocus: true %></div>
-
-              <div><%= f.label "Car Capacity" %><br />
-                <%= f.label :carbonated, 2 %> <%= f.radio_button :carcapacity, 2 %>
-                <%= f.label :carbonated, 3 %> <%= f.radio_button :carcapacity, 3 %>
-                <%= f.label :carbonated, 4 %> <%= f.radio_button :carcapacity, 4 %>
-              </div>
-
-
-
-
+ 
 
             <div id="schedulingInfo" class="col-md-6">
               <h3> When do you arrive/leave work? </h3> 
@@ -189,16 +200,14 @@
                 <table/>
               </div>
  
-
-
-
-
-
-              <div><%= f.submit "Update" %></div>
-            <% end %>
-
-
-        </div>
-      </div>
-    </div> 
-
+ 
+<div class="col-md-4 col-md-offset-4">
+<button type="button" class="btn btn-success btn-xlarge active">Submit</button>
+ 
+  <%= f.submit "Sign up" %>
+</div>
+ 
+<% end %>
+ 
+<%= render "devise/shared/links" %>
+</div>
