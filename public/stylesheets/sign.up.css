@@ -315,11 +315,11 @@ input[type="password"]:focus{
 }
 
 #loginArea {
-    height: 615px;
+    height: 666px;
 }
 
 .signInArea {
-           height: 70% !important;
+           height: 75% !important;
         color:#FFFFFF !important;
 
             margin-bottom: -10px;
