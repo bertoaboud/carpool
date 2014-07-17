@@ -10,6 +10,11 @@
     <link href ="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" rel="javascripts"> 
     <script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>
     <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+      <!-- Latest compiled and minified JavaScript -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../../assets/stylesheets/sign.up.css">
 
   </head>
 
@@ -40,51 +45,83 @@
             </form>  
           </div>  
         </div>
-
-
+        </div>
 
       <div class="jumbotron" style="background-image: url(/images/plainsroad.jpg);">
+        <div class="container">
+        <h2 style="font-weight: bold !important;">Edit Profile</h2>
+        <p  style="font-weight: bold !important;"> Input the fields in which you wish to change </p>
+      </div>
+    </div>
+<div id="loginArea" class="row" style="height: 775px;">
 
-          <h2>Edit <%= resource_name.to_s.humanize %></h2>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
               <%= devise_error_messages! %>
-
-              <div><%= f.label :name %><br />
-              <%= f.text_field :name, autofocus: true %></div>
-
-              <div><%= f.label :lastname %><br />
-              <%= f.text_field :lastname, autofocus: true %></div>
-
-              <div><%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true %></div>
-
-              <div><%= f.label :phone %><br />
-              <%= f.text_field :phone, autofocus: true %></div>
-
+          <div class="row">
+            <div class="col-xs-2 col-xs-offset-4">
+              <h4><%= f.label :name %></h4>
+              <%= f.text_field :name, autofocus: true, :class => "form-control", :placeholder => "Enter your first name" %>
+            </div>  
+            <div class="col-xs-2">
+              <h4><%= f.label :lastname %></h4>
+              <%= f.text_field :lastname, autofocus: true, :class => "form-control", :placeholder => "Enter your last name" %>
+            </div>  
+            <div class="row">            
+              <div class="col-xs-4 col-xs-offset-4">
+              <h4><%= f.label :email %></h4>
+              <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Enter your Freescale E-mail" %>
+              </div>
+            </div> 
+            <div class="row">            
+              <div class="col-xs-4 col-xs-offset-4">
+              <h4><%= f.label :phone %></h4>
+              <%= f.text_field :phone, autofocus: true, :class => "form-control", :placeholder => "Enter your phone number" %>
+              </div>
+            </div> 
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
               <% end %>
+            <div class="row">            
+              <div class="col-xs-4 col-xs-offset-4">
+              <h4><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i></h4>
+                <%= f.password_field :current_password, autocomplete: "off", :class => "form-control", :placeholder => "Enter your current password" %>
+              </div>
+            </div> 
+            <div class="row">            
+              <div class="col-xs-4 col-xs-offset-4">
+              <h4><%= f.label :password %> <i>(leave blank if you don't want to change it)</i></h4>
+                <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Enter your new password" %>
+              </div>
+            </div> 
+            <div class="row">            
+              <div class="col-xs-4 col-xs-offset-4">
+              <h4><%= f.label :password_confirmation %></h4>
+                <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder => "Confirm your new password" %>
+              </div>
+            </div> 
+            <div class="row">            
+              <div class="col-xs-4 col-xs-offset-4">
+              <h4><%= f.label :address %></h4>
+              <%= f.text_field :address, autofocus: true, :class => "form-control", :placeholder => "Enter your address" %>
+              </div>
+            </div> 
 
-              <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-                <%= f.password_field :password, autocomplete: "off" %></div>
-
-              <div><%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-              <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-                <%= f.password_field :current_password, autocomplete: "off" %></div>
-
-              <div><%= f.label :address %><br />
-              <%= f.text_field :address, autofocus: true %></div>
-
-              <div><%= f.label :drive %><br />
-              <%= f.check_box :drive, autofocus: true %></div>
-
-              <%= f.submit "Update" , :class =>" btn-warning btn-xlarge"%>
+          <div class="radioBtns">
+            <h3> Can you drive? </h3>
+            <div class="YesOrNo">
+              <%= f.label :carbonated, 'Yes' %> <%= f.radio_button :drive, true %>
+              <%= f.label :carbonated, 'No' %> <%= f.radio_button :drive, false %></div>      
+            </div>
+          </div>
+              <%= f.submit "Update" , :class =>" btn-warning btn-xlarge", :style=> "font-size:40px !important"%>
             <% end %>
-
-
         </div>
       </div>
-    </div> 
+  </div>
+
+    <div id="bottomText" class="col-md-2 cold-mx-offset-5">
+      <h3 style="float:left"> By: Team Brazil </h3>
+      <img style="float:right" src="/images/brazil.png" alt="rss feed" />
+    </div>
+</body>
 
