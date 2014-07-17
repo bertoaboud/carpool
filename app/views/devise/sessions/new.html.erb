@@ -38,7 +38,7 @@
             <div class="navbar-collapse collapse">
               <form class="navbar-form navbar-right" role="form">
                 <button type="submit" class="btn btn-danger disabled"><%= link_to "login", new_user_session_path, :class => 'navbar-link'  %></button>
-                <button type="submit" class="btn btn-success"><%= link_to "sign up", new_user_registration_path, :class => 'navbar-link'  %></button>
+                <button type="submit" class=""><%= button_to "sign up", new_user_registration_path, :class => 'btn btn-success'  %></button>
               </form>  
             </div>  
           </div><!--/.nav-collapse -->
@@ -59,21 +59,22 @@
                   <h4 style = "text-align:left"><%= f.label :email %></h4>
                   <%= f.email_field :email, autofocus: true %>
                 </div>
-              </div>
-              <div class="row disregardRowBackground">
-                <div class="col-xs-2 col-xs-offset-4">
-                  <h4><%= f.label :password %></h4>
-                  <%= f.password_field :password, autocomplete: "off" %>
                 </div>
-              </div>
-              <div class="row disregardRowBackground">
-                <div class="col-xs-2 col-xs-offset-4">
-                  <% if devise_mapping.rememberable? -%>
-                    <%= f.check_box :remember_me %><h4> <%= f.label :remember_me %></h4>
-                  <% end -%>
+                <div class="row disregardRowBackground">
+                  <div class="col-xs-2 col-xs-offset-4">
+                    <h4><%= f.label :password %></h4>
+                    <%= f.password_field :password, autocomplete: "off" %>
+                  </div>
                 </div>
-              </div>
-              <%= f.submit "Submit", :class =>" btn-success btn-xlarge" %>              <% end %>
+                <div class="row disregardRowBackground">
+                  <div class="col-xs-2 col-xs-offset-4">
+                    <% if devise_mapping.rememberable? -%>
+                      <%= f.check_box :remember_me %><h4> <%= f.label :remember_me %></h4>
+                    <% end -%>
+                  </div>
+                </div>
+                <%= f.submit "Submit", :class =>" btn-success btn-xlarge" %>              
+              <% end %>
             </div>
           </div>
         </div> 

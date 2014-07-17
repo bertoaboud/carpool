@@ -13,34 +13,38 @@
 
   </head>
 
-  <body>
-    <div class="container">
-      <!-- Static navbar -->
-      <div class="navbar navbar-default" role="navigation">
+<body>
+  <div class="entireBackground">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">  
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div>
+            <img src="/images/logo.gif" alt="rss feed" style="float:left;"/>
+            <a class="navbar-brand" href="#" ><%= link_to 'freelift', root_url, class: "navbar-brand"%></a>
+            <a class="navbar-brand" href="#" ><%= link_to 'home', root_url, class: "navbar-brand"%></a>
+          </div>
+        </div>
 
         <% if user_signed_in? %>
 
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="#">Carpool</a>
-            </div>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li style = "padding-top: 15px; padding-left: 30px;" >
-                  Welcome <strong><%= current_user.name.to_s + " " + current_user.lastname.to_s%></strong>.
-                </li>
-              </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a>
-                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
-              </a></li>
-              <li><a>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-              </a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-        <div class="jumbotron">
+          <div class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right" role="form">
+              <%= button_to "Edit profile", edit_user_registration_path, :class => "btn btn-danger", :method => :delete %>
+
+              <%= button_to "Logout", destroy_user_session_path, :class => "btn btn-success", :method => :delete%>
+            </form>  
+          </div>  
+        </div>
+
+
+        </div>
+        <div class="jumbotron" style="background-image: url(/images/plainsroad.jpg);">
           <% if current_user.latitude != nil %>
             <h3>People living close to you</h3>
             <% vector2 = Hash.new %>
@@ -262,25 +266,15 @@
 
         <% else %>
 
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="#">Carpool</a>
-            </div>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-              </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a>
-                <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-              </a></li>
-              <li><a>
-                <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-              </a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-        <div class="jumbotron">
-          <%= image_tag "road.jpg", size: "800x400", :style => "opacity:0.7; filter:alpha(opacity=50);" %>
+          <div class="navbar-collapse collapse">
+              <form class="navbar-form navbar-right" role="form">
+                <button type="submit" class="btn btn-danger"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></button>
+
+                <button type="submit" class="btn btn-success"><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></button>
+              </form>  
+            </div>  
+          </div>
+        <div class="jumbotron" style="background-image: url(/images/plainsroad.jpg);">
         </div>
 
         <% end %>
