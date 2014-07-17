@@ -58,7 +58,7 @@ h2{
   </head>
 
 <body>
-  <div style=" background-color: #232323; height: 100%;">
+  <div style=" background-color: #232323; height: 1250px;">
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -96,7 +96,7 @@ h2{
         </div>
         <div class="row" style="height: 200px">
             <% if current_user.latitude != nil %>
-              <h3>People living close to you</h3>
+              <h3>People living close to you:</h3>
               <% vector2 = Hash.new %>
               <% User.all.each do |u|%>
                 <% if u != current_user %>
@@ -217,7 +217,7 @@ Hope to hear from you soon!" do %>
                             <% end %>
                           </th>
                           <th>
-                            email group!
+                            Email group!
                           </th>
                       </tr>
                       <tr>
@@ -225,7 +225,7 @@ Hope to hear from you soon!" do %>
                           <%= image_tag("arrow_down.png", size: "32x32") %>
                           </th>
                           <th><b>
-                            saves per person:
+                            Saves per person:
                           </b></th>
                       </tr>
                       <tr>
@@ -259,9 +259,11 @@ Hope to hear from you soon!" do %>
             </table>
 </div>                
 </div>                
-</div>                
+</div>       
+</div>         
 
             <div style='width: 800px;'>
+
               <div>
               <div id="map" class="col-md-8 col-md-offset-2" style='text-align: center; width: 800px; margin-bottom: 100px; height: 400px; border-width: 3px; border-style: solid; border-color: #ccc #ccc #999 #ccc;'></div>
             </div>  
@@ -353,7 +355,7 @@ Hope to hear from you soon!" do %>
       <h3> Our platform uses technology to streamline the process of finding and arranging driving options for Freescale employees. </h3>
 </div>
 
-<div class="bs-example">
+<div class="bs-example" style="margin-top:-3%">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Carousel indicators -->
         <ol class="carousel-indicators">
