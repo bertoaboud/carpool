@@ -38,7 +38,7 @@
             <div class="navbar-collapse collapse">
               <form class="navbar-form navbar-right" role="form">
                 <button type="submit" class="btn btn-danger disabled"><%= link_to "login", new_user_session_path, :class => 'navbar-link'  %></button>
-                <button type="submit" class=""><%= button_to "sign up", new_user_registration_path, :class => 'btn btn-success'  %></button>
+             <button type="submit" class="btn btn-success"><%= link_to "sign up", new_user_registration_path, :class => 'navbar-link'  %></button>
               </form>  
             </div>  
           </div><!--/.nav-collapse -->
@@ -73,13 +73,8 @@
                     <h4> <%= f.label :remember_me, :style=>"position:relative; left:10px;"%></h4>
                   <% end -%>
                 </div>
-                <div class="row disregardRowBackground">
-                  <div class="col-xs-2 col-xs-offset-4">
-                    <% if devise_mapping.rememberable? -%>
-                      <%= f.check_box :remember_me %><h4> <%= f.label :remember_me %></h4>
-                    <% end -%>
-                  </div>
-                </div>
+</div>
+                <div>
                 <%= f.submit "Submit", :class =>" btn-success btn-xlarge" %>              
               <% end %>
             </div>
@@ -87,7 +82,8 @@
 
 
       </div>
-    <div id="bottomText" class="col-md-2 cold-mx-offset-10">
+    </div>
+    <div id="bottomText" class="col-md-2 cold-mx-offset-10" style="float:right">
       <h3 style="float:right"> By: Team Brazil </h3>
       <img style="float:right" src="/images/brazil.png" alt="rss feed" />
     </div>
