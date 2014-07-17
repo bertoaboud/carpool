@@ -79,9 +79,10 @@ h2{
 
           <div class="navbar-collapse collapse">
             <form class="navbar-form navbar-right" role="form">
-              <%= button_to "Edit profile", edit_user_registration_path, :class => "btn btn-danger", :method => :delete %>
+              <button type="submit" class="btn btn-danger"><%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link'  %></button>
 
-              <%= button_to "Logout", destroy_user_session_path, :class => "btn btn-success", :method => :delete%>
+              <button type="submit" class="btn btn-success"><%= link_to "Logout", destroy_user_session_path, :class => 'navbar-link', :method => :delete  %></button>
+
             </form>  
           </div>  
         </div>
@@ -278,7 +279,7 @@ h2{
                   "lat": <%= current_user.latitude %>,
                   "lng": <%= current_user.longitude %>,
                   "picture": {
-                    "url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTMT9Mbr7XsOwQPruLsvbjqITMalRRG4KWc1rYTLp47V98dKUgCSin-LA",
+                    "url": "http://png-2.findicons.com/files/icons/1264/clearblack/32/home.png",
                     "width":  32,
                     "height": 32
                   },
@@ -289,7 +290,7 @@ h2{
                 "lat": 30.2378944249208,
                 "lng": -97.8637985564374,
                 "picture": {
-                  "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNvUUkLpyrEsU70UOZgZB2YKyOS31gSBmWzAe_9F09KKVsaKC1Og",
+                  "url": "http://oi57.tinypic.com/21kcj1s.jpg",
                   "width":  32,
                   "height": 32
                 },

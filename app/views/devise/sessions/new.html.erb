@@ -54,28 +54,26 @@
           <div class="signInForm" >
             <div class="row disregardRowBackground" >
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <div class="col-xs-2 col-xs-offset-5" style=" margin-top:12%;">
 
+                <div class="col-xs-2 col-xs-offset-5" style=" margin-top:12%;">
                   <h4 style = "text-align:left"><%= f.label :email %></h4>
                   <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Enter your e-mail"  %>
                 </div>
-              </div>
-              <div class="row disregardRowBackground">
-                <div class="col-xs-2 col-xs-offset-5">
-                  <h4><%= f.label :password %></h4>
-                  <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Enter your password"  %>
+                <div class="row disregardRowBackground">
+                  <div class="col-xs-2 col-xs-offset-5">
+                    <h4><%= f.label :password %></h4>
+                    <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Enter your password"  %>
+                  </div>
                 </div>
-              </div>
-              <div class="row disregardRowBackground">
-                <div class="col-xs-2 col-xs-offset-5">
-                  <% if devise_mapping.rememberable? -%>
-                    <%= f.check_box :remember_me, :style=>"float:left; position:relative; top:10px;" %>
-                    <h4> <%= f.label :remember_me, :style=>"position:relative; left:10px;"%></h4>
-                  <% end -%>
+                <div class="row disregardRowBackground">
+                  <div class="col-xs-2 col-xs-offset-5">
+                    <% if devise_mapping.rememberable? -%>
+                      <%= f.check_box :remember_me, :style=>"float:left; position:relative; top:10px;" %>
+                      <h4> <%= f.label :remember_me, :style=>"position:relative; left:10px;"%></h4>
+                    <% end -%>
+                  </div>
                 </div>
-</div>
-                <div>
-                <%= f.submit "Submit", :class =>" btn-success btn-xlarge" %>              
+                <%= f.submit "Submit", :class =>" btn-success btn-xlarge" %>             
               <% end %>
             </div>
   
