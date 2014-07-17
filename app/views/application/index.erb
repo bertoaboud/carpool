@@ -35,11 +35,11 @@ h2{
 .item{
     background: #000000;    
     text-align: center;
-    height: 600px !important;
+    height: 560px !important;
 }
 .carousel{
   position: relative;
-  height: 600px;
+  height: 560px;
     margin-top: 30px;
 }
 
@@ -81,9 +81,9 @@ h2{
 
           <div class="navbar-collapse collapse">
             <form class="navbar-form navbar-right" role="form">
-              <button type="submit" class="btn btn-danger"><%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link'  %></button>
+              <button type="submit" class="btn btn-danger"><%= link_to "edit profile", edit_user_registration_path, :class => 'navbar-link'  %></button>
 
-              <button type="submit" class="btn btn-success"><%= link_to "Logout", destroy_user_session_path, :class => 'navbar-link', :method => :delete  %></button>
+              <button type="submit" class="btn btn-success"><%= link_to "logout", destroy_user_session_path, :class => 'navbar-link', :method => :delete  %></button>
 
             </form>  
           </div>  
@@ -351,9 +351,8 @@ Hope to hear from you soon!" do %>
           </div>  
         </div><!--/.nav-collapse -->
       </div>
-<div class="row" style="height: 10%; margin-top: 5%">
-     <h3> Freelift connects drivers and passengers alike to arrange carpooling options to and from work. </h3>
-      <h3> Our platform uses technology to streamline the process of finding and arranging driving options for Freescale employees. </h3>
+<div class="row" style="height: 3%; margin-top: 3.5%; margin-bottom: 3%">
+     <h3> freelift
 </div>
 
 <div class="bs-example" style="margin-top:-3%">
@@ -401,7 +400,10 @@ Hope to hear from you soon!" do %>
         </a>
     </div>
 </div>
-
+<div class="row" style="height: 10%; margin-top: 1%; margin-bottom: 3%">
+     <h3> Freelift connects drivers and passengers alike to arrange carpooling options to and from work. </h3>
+      <h3> Our platform uses technology to streamline the process of finding and arranging driving options for Freescale employees. </h3>
+</div>
 
         
 
