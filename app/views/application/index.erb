@@ -19,7 +19,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
      $("#myCarousel").carousel({
-         interval : 3000,
+         interval : 1000,
          pause: false
      });
 });
@@ -72,6 +72,8 @@ h2{
             <img src="/images/logo.gif" alt="rss feed" style="float:left;"/>
             <a class="navbar-brand" href="#" ><%= link_to 'freelift', root_url, class: "navbar-brand"%></a>
             <a class="navbar-brand" href="#" ><%= link_to 'home', root_url, class: "navbar-brand"%></a>
+              <h3 style="float:left; padding-left: 30px; font-size: 18px;"> By: Team Brazil </h3>
+                <img style="float:left; " src="/images/brazil.png" alt="rss feed" />
           </div>
         </div>
 
@@ -356,21 +358,21 @@ Hope to hear from you soon!" do %>
             <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>   
         <!-- Carousel items -->'
-        <div class="carousel-inner">
+        <div class="carousel-inner" style="padding-top:10px">
             <div class="active item signInArea">
                 <img src="/images/home.jpg" alt="Home" style="top:0px;">
                 <h2>Slide 1</h2>
             <div class="carousel-caption">
-                  <h3>First slide label</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <h3 style="font-size: 50px; padding-bottom: 30px;text-shadow: 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000 !important;">From Your Home</h3>
+
                 </div>
             </div>
             <div class="item">
                 <img src="/images/highway.jpg" alt="City Road" style="top:0px;">
                 <h2>Slide 2</h2>
                 <div class="carousel-caption">
-                  <h3>Second slide label</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <h3 style="font-size: 50px;padding-bottom: 30px; text-shadow: 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000 !important;">On The Road</h3>
+
                 </div>
             </div>
             <div class="item">
@@ -378,8 +380,8 @@ Hope to hear from you soon!" do %>
 
                 <h2>Slide 3</h2>
                 <div class="carousel-caption">
-                  <h3>Third slide label</h3>
-                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                  <h3 style="font-size: 50px; padding-bottom: 30px; text-shadow: 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000 !important;">To Your Office</h3>
+
                 </div>
             </div>
         </div>
