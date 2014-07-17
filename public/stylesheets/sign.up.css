@@ -76,7 +76,7 @@ html, body
         background:url(imgs/bg.jpg);
         font-family: Helvetica,sans-serif ;
         text-align: center;
-        background-color:#DC3D24;
+        background-color:#232323;
 }
  
  
@@ -163,11 +163,19 @@ table input[type=checkbox].css-checkbox:checked + label.redcss-label {
 }
  
  
- 
+ .radio_buttons_class {
+    height:6em;
+    width:6em;
+}
 .radioBtns input[type=radio].css-checkbox {
         display:none;
 }
- 
+input[type=radio] {
+    border: 0px;
+    width: 20px;
+    height: 20px;
+}
+
 .radioBtns input[type=radio].css-checkbox + label.radiocss-label {
         padding-left:37px;
         height:32px;

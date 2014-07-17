@@ -60,7 +60,7 @@
               <%= f.text_field :name, autofocus: true, :class => "form-control", :placeholder => "Enter your first name" %> 
             </div>  
             <div class="col-xs-2">
-              <h4><%= f.label :lastname %></h4> 
+              <h4><%= f.label "Last Name" %></h4> 
               <%= f.text_field :lastname, autofocus: true, :class => "form-control", :placeholder => "Enter your last name" %>
           </div>   
 
@@ -73,8 +73,8 @@
 
           <div class="row">
             <div class="col-xs-4 col-xs-offset-4">
-              <div><%= f.label :phone %><br />
-              <%= f.text_field :phone, autofocus: true, :class => "form-control", :placeholder => "Enter your phone number"  %></div>
+              <h4><%= f.label :phone %></h4>
+              <%= f.text_field :phone, autofocus: true, :class => "form-control", :placeholder => "Enter your phone number"  %>
             </div>
           </div>
           
@@ -102,9 +102,11 @@
 
           <div class="radioBtns">
             <h3> Can you drive? </h3>
-            <div class="YesOrNo">
-              <%= f.label :carbonated, 'Yes' %> <%= f.radio_button :drive, true %>
-              <%= f.label :carbonated, 'No' %> <%= f.radio_button :drive, false %></div>      
+            <div style="    margin-bottom: 30px;">
+              <div class="YesOrNo">
+                <%= f.label :carbonated, 'Yes' %> <%= f.radio_button :drive, true %>
+                <%= f.label :carbonated, 'No' %> <%= f.radio_button :drive, false %></div>      
+              </div>
             </div>
           </div>
 
@@ -112,9 +114,5 @@
           <%end%>
         </div>
       </div>
-    <div id="bottomText" class="col-md-2 cold-mx-offset-5">
-      <h3 style="float:left"> By: Team Brazil </h3>
-      <img style="float:right" src="/images/brazil.png" alt="rss feed" />
-    </div>
 </body>
 

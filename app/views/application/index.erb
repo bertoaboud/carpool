@@ -58,7 +58,7 @@ h2{
   </head>
 
 <body>
-  <div class="entireBackground">
+  <div style=" background-color: #232323; height: 1100px;">
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -89,224 +89,244 @@ h2{
 
 
         </div>
+
         <div class="jumbotron" style="background-image: url(/images/plainsroad.jpg);">
-          <% if current_user.latitude != nil %>
-            <h3>People living close to you</h3>
-            <% vector2 = Hash.new %>
-            <% User.all.each do |u|%>
-              <% if u != current_user %>
-                <% if u.latitude != nil %>
-                  <% vector2 = vector2.merge( {u => Geocoder::Calculations.distance_between([u.latitude,u.longitude], [current_user.latitude,current_user.longitude])})%>
-                <% end %>
-              <% end %>
-            <% end %>
-            <% vector2 = vector2.sort_by {|name, distance| distance} %>
-            <table class="table table-bordered table-hover" style = "width:300px; background-color: #FFFFFF ">
-              <% for i in 0..4%>
-                <tr>
-                  <th>
-                    <% if vector2[i].first.drive %>
-                      <%= image_tag("driver.jpg", size: "32x32") %>
-                    <% else %>
-                      <%= image_tag("passenger.jpg", size: "32x32") %>
-                    <% end %>
-                  </th>
-                  <th>
-                    <%= link_to vector2[i].first.name, user_show_path(vector2[i].first.id)%>
-                  </th>
-                  <th style = "width:170px">
-                    <%= vector2[i].second.round(1).to_s + " miles"  %>
-                  </th>
-                  <th>
-                    <%= link_to "mailto:#{vector2[i].first.email}?subject=Let's carpool!&body=Hi, I saw you in carpool and uhul i love carpool" do %>
-                      <%= image_tag("email.jpg", size: "32x32") %>
-                    <% end %>
-                  </th>
-                </tr>
-              <% end %>
-            </table>
-          <% else %>
-            <h4 class="alert alert-error" style="color: red">
-              We could not find your address, please set a valid address for your profile!
-            </h3>
-          <% end %>
-          <br>
-          <h3>Suggested rides:</h3>
-          <% dis_max = 4%>
-          <% vector_sug = Array.new %>
-          <% if vector2 %>
-            <% vector2.each_with_index do |v,i| %>
-              <% if i < 5 %>
-                <% if v.second < dis_max %>
-                  <% vector_sug << v.first %>
-                <% end %>
-              <% end %>
-            <% end %>
-            <% if vector_sug.size > 0 %>
-              <% if vector_sug.size > 3 %>
-                <% num = 3 %>
-              <% else %>
-                <% num = vector_sug.size %>
-              <% end %>
-              <div class="row">
-              <% vector_sug.combination(num).to_a.each do |v| %>
-                <% num_drivers = 0 %>
-                <% v.each do |t| %>
-                  <% if t.drive %>
-                    <% num_drivers = num_drivers+1 %>
+        </div>
+        <div class="row" style="height: 200px">
+            <% if current_user.latitude != nil %>
+              <h3>People living close to you</h3>
+              <% vector2 = Hash.new %>
+              <% User.all.each do |u|%>
+                <% if u != current_user %>
+                  <% if u.latitude != nil %>
+                    <% vector2 = vector2.merge( {u => Geocoder::Calculations.distance_between([u.latitude,u.longitude], [current_user.latitude,current_user.longitude])})%>
                   <% end %>
                 <% end %>
-                <% if num_drivers > 0 %>
-                  <table class="table table-bordered table-hover col-md-6" style = "width:150px; background-color: #FFFFFF ">
-                    <tr>
-                        <th>
-                          Group
-                        </th>
-                    </tr>
-                    <% v_emails = "" %>
-                    <% v_total_dist = 0 %>
-                    <% v.each do |f| %>
-                      <% v_emails += f.email.to_s + "; " %>
-                      <% v_total_dist += Geocoder::Calculations.distance_between([f.latitude,f.longitude], [current_user.latitude,current_user.longitude]) %>
+              <% end %>
+              <% vector2 = vector2.sort_by {|name, distance| distance} %>
+              <table class="table table-bordered table-hover" style = "border: 0px; width:300px; background-color: #FFFFFF ">
+                <% for i in 0..4%>
+                  <tr style="height: 20px">
+                    <th>
+                      <% if vector2[i].first.drive %>
+                        <%= image_tag("driver.jpg", size: "32x32") %>
+                      <% else %>
+                        <%= image_tag("passenger.jpg", size: "32x32") %>
+                      <% end %>
+                    </th>
+                    <th>
+                      <%= link_to vector2[i].first.name, user_show_path(vector2[i].first.id)%>
+                    </th>
+                    <th style = "width:170px">
+                      <%= vector2[i].second.round(1).to_s + " miles"  %>
+                    </th>
+                    <th>
+                      <%= link_to "mailto:#{vector2[i].first.email}?subject=Let's carpool!&body=Hi, I saw you in carpool and uhul i love carpool" do %>
+                        <%= image_tag("email.jpg", size: "32x32") %>
+                      <% end %>
+                    </th>
+                  </tr>
+                <% end %>
+              </table>
+            <% else %>
+              <h4 class="alert alert-error" style="color: red">
+                We could not find your address, please set a valid address for your profile!
+              </h3>
+            <% end %>
+            <br>
+
+            <h3>Suggested rides:</h3>
+            <% dis_max = 4%>
+            <% vector_sug = Array.new %>
+            <% if vector2 %>
+              <% vector2.each_with_index do |v,i| %>
+                <% if i < 5 %>
+                  <% if v.second < dis_max %>
+                    <% vector_sug << v.first %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <% if vector_sug.size > 0 %>
+                <% if vector_sug.size > 3 %>
+                  <% num = 3 %>
+                <% else %>
+                  <% num = vector_sug.size %>
+                <% end %>
+<div class="row col-md-8 col-md-offset-2" style="">
+                <% max_sug=0 %>
+                <% vector_sug.combination(num).to_a.each do |v| %>
+                  <% max_sug=max_sug+1 %>
+                  <% if max_sug<5 %>
+                  <% num_drivers = 0 %>
+                  <% v.each do |t| %>
+                    <% if t.drive %>
+                      <% num_drivers = num_drivers+1 %>
                     <% end %>
-                    <% v.each do |vv| %>
+                  <% end %>
+                  <% if num_drivers > 0 %>
+
+                    <table class="col-md-3 table table-bordered table-hover" style = "margin-left: 10px; float: left; border: 0px; width:150px; background-color: #FFFFFF ">
+                      <tr>
+                          <th>
+                            Group
+                          </th>
+                      </tr>
+                      <% v_emails = "" %>
+                      <% v_total_dist = 0 %>
+                      <% v.each do |f| %>
+                        <% v_emails += f.email.to_s + "; " %>
+                        <% v_total_dist += Geocoder::Calculations.distance_between([f.latitude,f.longitude], [30.2378944249208,-97.8637985564374]) %>
+                      <% end %>
+                      <% v.each do |vv| %>
+                        <tr>
+                          <th>
+                            <% if vv.drive %>
+                              <%= image_tag("driver.jpg", size: "32x32") %>
+                            <% else %>
+                              <%= image_tag("passenger.jpg", size: "32x32") %>
+                            <% end %>
+                          </th>
+                          <th>
+                            <%= link_to vv.name, user_show_path(vv.id)%>
+                          </th>
+                        </tr>
+                      <% end %>
                       <tr>
                         <th>
-                          <% if vv.drive %>
+                          <% if current_user.drive %>
                             <%= image_tag("driver.jpg", size: "32x32") %>
                           <% else %>
                             <%= image_tag("passenger.jpg", size: "32x32") %>
                           <% end %>
                         </th>
                         <th>
-                          <%= link_to vv.name, user_show_path(vv.id)%>
+                          You
                         </th>
                       </tr>
+                      <tr>
+                          <th>
+                            <%= link_to "mailto:#{v_emails}?subject=Let's carpool!&body=Hi, I saw you in carpool and uhul i love carpool" do %>
+                              <%= image_tag("email.jpg", size: "32x32", :align=> "middle") %>
+                            <% end %>
+                          </th>
+                          <th>
+                            email group!
+                          </th>
+                      </tr>
+                      <tr>
+                          <th>
+                          <%= image_tag("arrow_down.png", size: "32x32") %>
+                          </th>
+                          <th><b>
+                            saves per person:
+                          </b></th>
+                      </tr>
+                      <tr>
+                        <th>
+                          <%= image_tag("CO2.png", size: "32x32") %>
+                        </th>
+                        <th>
+                          <% gal_save = ((v_total_dist/3)/23*v.size*2*20).round %>
+                          <% co2_save = (22.38*gal_save).round %>
+                          <%= co2_save.to_s + ' lbs/month per person' %>
+                        </th>
+                      </tr>
+                      <tr>
+                      <tr>
+                        <th>
+                          <%= image_tag("money.png", size: "32x32") %>
+                        </th>
+                        <th>
+                          <%= "saves $" + (gal_save*3.61).round(2).to_s + '/month' %>
+                        </th>
+                      </tr>
+
+                      <br>
                     <% end %>
-                    <tr>
-                      <th>
-                        <% if current_user.drive %>
-                          <%= image_tag("driver.jpg", size: "32x32") %>
-                        <% else %>
-                          <%= image_tag("passenger.jpg", size: "32x32") %>
-                        <% end %>
-                      </th>
-                      <th>
-                        You
-                      </th>
-                    </tr>
-                    <tr>
-                      <th>
-                        <%= image_tag("gas.png", size: "32x32") %>
-                      </th>
-                      <th>
-                        <% gal_save = ((v_total_dist/4)/23*v.size*2*20).round(2) %>
-                        <%= gal_save.to_s + ' gallons saved/month' %>
-                      </th>
-                    </tr>
-                    <tr>
-                    <tr>
-                      <th>
-                        <%= image_tag("money.png", size: "32x32") %>
-                      </th>
-                      <th>
-                        <%= (gal_save*3.61).round(2).to_s + ' dollars saved/month' %>
-                      </th>
-                    </tr>
-                    <tr>
-                        <th>
-                          <%= link_to "mailto:#{v_emails}?subject=Let's carpool!&body=Hi, I saw you in carpool and uhul i love carpool" do %>
-                            <%= image_tag("email.jpg", size: "32x32", :align=> "middle") %>
-                          <% end %>
-                        </th>
-                        <th>
-                          email group!
-                        </th>
-                    </tr>
-
-                    <br>
                   <% end %>
+                  <%end%>
                 <% end %>
-              <% end %>
-              </div>
-          <% end %>
-          </table>
-
-          <div style='width: 800px;'>
-            <div id="map" style='width: 800px; height: 400px; border-width: 3px; border-style: solid; border-color: #ccc #ccc #999 #ccc;'></div>
-          </div>  
-
-          <script type="text/javascript">
-          handler = Gmaps.build('Google');
-          var directionsDisplay = new google.maps.DirectionsRenderer();
-          var directionsService = new google.maps.DirectionsService();
-          function calcRoute() {
-            var destination = new google.maps.LatLng(30.2378944249208, -97.8637985564374);
-            <% if current_user.latitude != nil %>
-              var origin  = new google.maps.LatLng(<%= current_user.latitude %>, <%= current_user.longitude %>);
-            <% else %>
-              var origin = destination;
+</div>                
+                </div>
             <% end %>
-            var request = {
-                origin:      origin,
-                destination: destination,
-                travelMode:  google.maps.TravelMode.DRIVING
-            };
-            directionsService.route(request, function(response, status) {
-              if (status == google.maps.DirectionsStatus.OK) {
-                directionsDisplay.setDirections(response);
-              }
-            });
-          }
-          handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-            calcRoute(); // call this anywhere you want
-            directionsDisplay.setMap(handler.getMap())
-            directionsDisplay.setOptions( { suppressMarkers: true } );
-            markers = handler.addMarkers([
-              <% User.all.each do |u| %>
-                <% if u.latitude != nil %>
-                  <% if u != current_user %>
-                    {
-                      "lat": <%= u.latitude %>,
-                      "lng": <%= u.longitude %>,
-                      "infowindow": "hello!"            
-                    },
+            </table>
+</div>                
+</div>                
+</div>                
+
+            <div style='width: 800px;'>
+              <div>
+              <div id="map" class="col-md-8 col-md-offset-2" style='text-align: center; width: 800px; margin-bottom: 100px; height: 400px; border-width: 3px; border-style: solid; border-color: #ccc #ccc #999 #ccc;'></div>
+            </div>  
+
+            <script type="text/javascript">
+            handler = Gmaps.build('Google');
+            var directionsDisplay = new google.maps.DirectionsRenderer();
+            var directionsService = new google.maps.DirectionsService();
+            function calcRoute() {
+              var destination = new google.maps.LatLng(30.2378944249208, -97.8637985564374);
+              <% if current_user.latitude != nil %>
+                var origin  = new google.maps.LatLng(<%= current_user.latitude %>, <%= current_user.longitude %>);
+              <% else %>
+                var origin = destination;
+              <% end %>
+              var request = {
+                  origin:      origin,
+                  destination: destination,
+                  travelMode:  google.maps.TravelMode.DRIVING
+              };
+              directionsService.route(request, function(response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                  directionsDisplay.setDirections(response);
+                }
+              });
+            }
+            handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+              calcRoute(); // call this anywhere you want
+              directionsDisplay.setMap(handler.getMap())
+              directionsDisplay.setOptions( { suppressMarkers: true } );
+              markers = handler.addMarkers([
+                <% User.all.each do |u| %>
+                  <% if u.latitude != nil %>
+                    <% if u != current_user %>
+                      {
+                        "lat": <%= u.latitude %>,
+                        "lng": <%= u.longitude %>,
+                        "infowindow": "hello!"            
+                      },
+                    <% end %>
                   <% end %>
                 <% end %>
-              <% end %>
-              <% if current_user.latitude != nil %>
+                <% if current_user.latitude != nil %>
+                  {
+                    "lat": <%= current_user.latitude %>,
+                    "lng": <%= current_user.longitude %>,
+                    "picture": {
+                      "url": "http://png-2.findicons.com/files/icons/1264/clearblack/32/home.png",
+                      "width":  32,
+                      "height": 32
+                    },
+                    "infowindow": "home!"              
+                  },
+                <% end %>
                 {
-                  "lat": <%= current_user.latitude %>,
-                  "lng": <%= current_user.longitude %>,
+                  "lat": 30.2378944249208,
+                  "lng": -97.8637985564374,
                   "picture": {
-                    "url": "http://png-2.findicons.com/files/icons/1264/clearblack/32/home.png",
+                    "url": "http://oi57.tinypic.com/21kcj1s.jpg",
                     "width":  32,
                     "height": 32
                   },
-                  "infowindow": "home!"              
-                },
-              <% end %>
-              {
-                "lat": 30.2378944249208,
-                "lng": -97.8637985564374,
-                "picture": {
-                  "url": "http://oi57.tinypic.com/21kcj1s.jpg",
-                  "width":  32,
-                  "height": 32
-                },
-                "infowindow": "freescale!"
-              }
-            ]
-            );
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-          });
-          </script>
-
-
-
+                  "infowindow": "freescale!"
+                }
+              ]
+              );
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+            });
+            </script>
         </div>
-
+      </div>
 
 
         <% else %>
@@ -316,7 +336,7 @@ h2{
         <div class="navbar-collapse collapse">
             <form class="navbar-form navbar-right" role="form">
               <button type="submit" class="btn btn-danger"><%= link_to "login", new_user_session_path, :class => 'navbar-link'  %></button>
-              <button type="submit" class="btn btn-success disabled"><%= link_to "sign up", new_user_registration_path, :class => 'navbar-link'  %></button>
+              <button type="submit" class="btn btn-success"><%= link_to "sign up", new_user_registration_path, :class => 'navbar-link'  %></button>
             </form>  
           </div>  
         </div><!--/.nav-collapse -->
@@ -379,10 +399,6 @@ h2{
 
     </div> 
     <% end %>
-    <div id="bottomText" class="col-md-2 cold-mx-offset-5">
-      <h3 style="float:left"> By: Team Brazil </h3>
-      <img style="float:right" src="/images/brazil.png" alt="rss feed" />
-    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

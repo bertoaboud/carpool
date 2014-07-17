@@ -14,7 +14,7 @@
   </head>
 
 <body>
-  <div class="entireBackground">
+  <div style=" background-color: #232323; height: 1300px;">
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -64,7 +64,9 @@
 
 
         <div class="jumbotron" style="background-image: url(/images/plainsroad.jpg);">
-          <%= image_tag "user_pic.png", size: "240x190" %>
+        </div>
+        <div style="color: #ffffff;">
+          <%= image_tag "user5.jpg", size: "240x190" %>
           <h3>
             <%= @user.name + ' ' + @user.lastname%>
           </h3>
